@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Message 💖</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { background: linear-gradient(135deg, #fce7f3 0%, #ede9fe 40%, #fdf2f8 100%); min-height: 100vh; }
+.page { padding: 3rem 1.5rem 5rem; position: relative; z-index: 1; }
+.final-header { text-align: center; margin-bottom: 2rem; }
+.final-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.8rem); font-weight: 700; background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.3; animation: glowPulse 3s infinite; }
+
+/* Letter */
+.letter { max-width: 680px; margin: 0 auto 3rem; padding: 3rem; }
+.letter-body { font-size: 1.1rem; color: #4a1942; line-height: 1.9; }
+#typewriter-text { font-family: 'Nunito', sans-serif; }
+.cursor { display: inline-block; animation: blink 0.7s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Collage */
+.collage { max-width: 720px; margin: 0 auto 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.collage-item { border-radius: 18px; overflow: hidden; box-shadow: 0 6px 20px rgba(236,72,153,0.2); transition: transform 0.4s; }
+.collage-item:hover { transform: scale(1.04) rotate(1deg); }
+.collage-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.collage-item:first-child { grid-column: 1 / -1; }
+.collage-item:first-child img { height: 280px; }
+
+/* Timeline */
+.timeline { max-width: 600px; margin: 0 auto 3rem; }
+.timeline-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #4a1942; text-align: center; margin-bottom: 1.5rem; }
+.timeline-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; animation: slideInLeft 0.7s ease both; }
+.timeline-item:nth-child(even) { animation-name: slideInRight; flex-direction: row-reverse; text-align: right; }
+.timeline-dot { min-width: 44px; height: 44px; background: linear-gradient(135deg, #ec4899, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.timeline-content { background: rgba(255,255,255,0.5); border-radius: 14px; padding: 1rem 1.2rem; flex: 1; }
+.timeline-year { font-weight: 700; color: #ec4899; font-size: 0.85rem; }
+.timeline-text { color: #4a1942; font-size: 0.95rem; line-height: 1.5; }
+
+/* Memory cards */
+.memory-cards { max-width: 800px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+.m-card { background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.6); border-radius: 18px; padding: 1.5rem; text-align: center; animation: fadeInUp 0.7s ease both; box-shadow: 0 4px 20px rgba(236,72,153,0.12); transition: transform 0.3s; }
+.m-card:hover { transform: translateY(-6px); }
+.m-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.m-card .m-title { font-family: 'Playfair Display', serif; color: #4a1942; font-size: 1.05rem; margin-bottom: 0.3rem; }
+.m-card .m-text { color: #8b5cf6; font-size: 0.88rem; }
+
+/* Ending */
+.ending { text-align: center; max-width: 550px; margin: 0 auto 2.5rem; }
+.ending-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: #4a1942; line-height: 1.7; margin-bottom: 2rem; padding: 1.5rem 2rem; }
+.final-btn-wrap { text-align: center; }
+.final-btn { background: linear-gradient(135deg, #ec4899, #a855f7, #8b5cf6); animation: pulseShadow 2s infinite; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+.revealed { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<div id="loading"><div class="loading-heart">💖</div></div>
+<div id="progress-bar"></div>
+<div class="particles-container"></div>
+<div class="controls">
+  <button class="ctrl-btn" id="music-btn" onclick="toggleMusic()">🎵</button>
+  <button class="ctrl-btn" id="dark-btn" onclick="toggleDark()">🌙</button>
+</div>
+
+<div class="page page-content">
+  <div class="final-header">
+    <div class="final-title">Thank You For Being Such An Amazing Friend ❤️</div>
+  </div>
+
+  <!-- Letter -->
+  <div class="glass-card letter reveal">
+    <div class="letter-body">
+      <div id="typewriter-text"></div><span class="cursor">|</span>
+    </div>
+  </div>
+
+  <!-- Photo Collage -->
+  <div class="collage reveal" id="collage"></div>
+
+  <!-- Timeline -->
+  <div class="timeline reveal">
+    <div class="timeline-title">Our Friendship Journey 💕</div>
+    <div class="timeline-item"><div class="timeline-dot">🌟</div><div class="timeline-content"><div class="timeline-year">The Beginning</div><div class="timeline-text">The day we first met and I knew you were going to be someone truly special in my life.</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot">😂</div><div class="timeline-content"><div class="timeline-year">Countless Laughs</div><div class="timeline-text">All those times we laughed until our stomachs hurt — pure, priceless moments.</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot">🤝</div><div class="timeline-content"><div class="timeline-year">Through Tough Times</div><div class="timeline-text">You were always there, even when it was hard. That's what real friendship looks like.</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot">🌸</div><div class="timeline-content"><div class="timeline-year">Today & Always</div><div class="timeline-text">Here's to every adventure still ahead — because the best is yet to come! 🚀</div></div></div>
+  </div>
+
+  <!-- Memory Cards -->
+  <div class="memory-cards reveal">
+    <div class="m-card" style="animation-delay:0s"><div class="icon">💕</div><div class="m-title">Always There</div><div class="m-text">Through every high and low, you never left</div></div>
+    <div class="m-card" style="animation-delay:0.15s"><div class="icon">🌸</div><div class="m-title">Pure Kindness</div><div class="m-text">Your heart is bigger than the universe</div></div>
+    <div class="m-card" style="animation-delay:0.3s"><div class="icon">✨</div><div class="m-title">My Sunshine</div><div class="m-text">You light up every room you walk into</div></div>
+    <div class="m-card" style="animation-delay:0.45s"><div class="icon">💖</div><div class="m-title">True Friend</div><div class="m-text">Rare, precious, irreplaceable — that's you</div></div>
+  </div>
+
+  <!-- Ending -->
+  <div class="ending reveal">
+    <div class="glass-card ending-quote">
+      "No matter where life takes us, these memories will always stay special."
+    </div>
+    <div class="final-btn-wrap">
+      <button class="surprise-btn final-btn" onclick="celebrate(event)">❤️ HAPPY FRIENDSHIP DAY ❤️</button>
+    </div>
+  </div>
+</div>
+
+<button id="back-to-top" onclick="scrollTop()">↑</button>
+
+<script src="js/photos.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script>
+// Build collage
+const collage = document.getElementById('collage');
+PHOTOS.forEach((src, i) => {
+  const div = document.createElement('div');
+  div.className = 'collage-item';
+  div.innerHTML = `<img src="${src}" alt="Memory" loading="lazy">`;
+  collage.appendChild(div);
+});
+
+// Typewriter
+const message = `Dear Friend,\n\nFrom the very first moment we met, I knew you were someone extraordinary. Your laughter is contagious, your kindness is boundless, and your presence makes every single day brighter.\n\nThank you for every inside joke, every late-night conversation, every shoulder you've offered, and every moment of pure, unfiltered joy.\n\nYou are not just a friend — you are a blessing. And today, on Friendship Day, I want you to know that I am so, so grateful for YOU. 💖`;
+
+function startTypewriter() {
+  const el = document.getElementById('typewriter-text');
+  if (!el) return;
+  let i = 0;
+  function tick() {
+    if (i < message.length) {
+      el.textContent += message[i] === '\n' ? '\n' : message[i];
+      if (message[i] === '\n') {
+        el.innerHTML = el.innerHTML + '<br>';
+        el.textContent = '';
+        // rebuild with br
+      }
+      i++;
+      setTimeout(tick, message[i-1] === '\n' ? 300 : 35);
+    }
+  }
+  // Better approach: just set html
+  let idx = 0;
+  el.innerHTML = '';
+  const full = message.replace(/\n/g, '<br>');
+  const chars = [...message];
+  function typeChar() {
+    if (idx < chars.length) {
+      if (chars[idx] === '\n') { el.innerHTML += '<br>'; } 
+      else { el.innerHTML += chars[idx]; }
+      idx++;
+      setTimeout(typeChar, chars[idx-1] === '\n' ? 300 : 38);
+    }
+  }
+  typeChar();
+}
+
+// Start typewriter when visible
+const letterEl = document.querySelector('.letter');
+const obs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { startTypewriter(); obs.disconnect(); }
+}, { threshold: 0.3 });
+if (letterEl) obs.observe(letterEl);
+
+function celebrate(e) {
+  confettiBurst(e.clientX, e.clientY);
+  heartExplosion(e.clientX, e.clientY);
+  setTimeout(() => fireworks(), 200);
+  setTimeout(() => fireworks(), 700);
+}
+</script>
+</body>
+</html>

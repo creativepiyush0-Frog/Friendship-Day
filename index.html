@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Friendship Day ❤️</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { background: linear-gradient(135deg, #fdf2f8 0%, #f0e6ff 50%, #fce7f3 100%); min-height: 100vh; }
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; position: relative; z-index: 1; }
+.hero-card { padding: 3rem 3.5rem; max-width: 600px; width: 100%; animation: fadeInUp 1.2s ease; }
+.greeting { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 700; background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: glowPulse 3s infinite; line-height: 1.1; margin-bottom: 1rem; }
+.sub { font-size: 1.2rem; color: #7c3aed; margin-bottom: 2.5rem; font-style: italic; animation: fadeInUp 1.5s ease; }
+.btn-wrap { animation: fadeInUp 1.8s ease; }
+.sparkle { display: inline-block; animation: spin 3s linear infinite; }
+.stars-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.star { position: absolute; width: 4px; height: 4px; background: #ec4899; border-radius: 50%; animation: twinkle 2s infinite; }
+@keyframes twinkle { 0%,100%{opacity:0;transform:scale(0)} 50%{opacity:1;transform:scale(1)} }
+.heart-float { position: fixed; font-size: 1.5rem; animation: floatUp linear infinite; pointer-events: none; z-index: 0; }
+</style>
+</head>
+<body>
+<div id="loading"><div class="loading-heart">💖</div></div>
+<div id="progress-bar"></div>
+
+<div class="stars-bg" id="stars"></div>
+<div class="particles-container"></div>
+
+<div class="controls">
+  <button class="ctrl-btn" id="music-btn" onclick="toggleMusic()" title="Music">🎵</button>
+  <button class="ctrl-btn" id="dark-btn" onclick="toggleDark()" title="Dark Mode">🌙</button>
+</div>
+
+<div class="hero">
+  <div class="glass-card hero-card">
+    <div class="greeting">Happy Friendship Day ❤️</div>
+    <p class="sub">I made something special just for you ✨</p>
+    <div class="btn-wrap">
+      <a href="surprise1.html" class="surprise-btn">
+        <span class="sparkle">✨</span> SURPRISE <span class="sparkle">✨</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<button id="back-to-top" onclick="scrollTop()">↑</button>
+
+<script src="js/photos.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script>
+// Create stars
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 60; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.animationDelay = Math.random() * 2 + 's';
+  s.style.animationDuration = (1 + Math.random() * 2) + 's';
+  starsEl.appendChild(s);
+}
+</script>
+</body>
+</html>
